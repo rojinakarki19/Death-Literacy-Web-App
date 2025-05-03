@@ -215,19 +215,66 @@ fetch('/save-scores', {
   
     // This code should go after the form submission logic
     $("#submitBtn").click(function () {
+      const feedback=[];
         // Determine feedback based on the overall score
-      if (overallScore >= 4.5) {
-        feedback = "Excellent! You have a great understanding and preparedness.";
-      }else if (overallScore >= 3.5) {
-        feedback = "Good job! You have a solid understanding but there may be some areas for improvement.";
-      } else if (overallScore >= 2.5) {
-        feedback = "You have an average level of understanding. Consider focusing on areas where you can improve.";
+      if (overallScore >= 5.8) {
+        feedback.push("You scored higher than most people on the Death Literacy Index.");
+      }else if (overallScore>=3.86 && overallScore<=5.80) {
+        feedback.push("Your score is about average across all areas of death literacy.");
       } else {
-        feedback = "It seems like there are several areas where you can improve your understanding and preparedness.";
+        feedback.push("You scored lower than others on the overall Death Literacy Index.");
+       }
+      
+      if (averageScores["Talking-Support"]<4.25) {
+          feedback.push("Talking-Support:You scored lower than most people when it comes to talking about death and dying. You might not feel very confident talking about death yet-and that's completely okay");
+       } else if (averageScores["Talking-Support"]>6.68){
+          feedback.push("Talking-Support:You scored higher than most people in talking about death and dying.You seem really comfortable talking about end-of-life matters, which is a real strength.Use that comfort to gently support others who may find these conversations difficult. You can help make these talks feel safer.");
+       } else {
+          feedback.push("Talking-Support:Your score is about the same as most people's.You're about as comfortable talking about death as most people. That's a solid place to be.Keep having open conversations when the opportunity comes up—it helps create a more supportive space for everyone.");
+       }
+
+       if (averageScores["Providing Hands-On Care"]>5.89){
+          feedback.push("Providing Hands-On Care:You scored higher than most people in hands-on support.You've clearly had experience helping someone directly, and that's really valuable.Consider mentoring others or getting involved in your community's end-of-life care efforts. Your experience can make a difference.");
+       } else if(averageScores["Providing Hands-On Care"]<3.35){
+          feedback.push("Providing Hands-On Care:You scored lower than others in hands-on care.You may not have had much experience helping someone physically at the end of life. That's very common.You could look into volunteering, or even just learn basic care skills—it can help build confidence over time.");
+       } else{
+          feedback.push("Providing Hands-On Care:Your score is in line with the average when it comes to hands-on support.You've had some hands-on experience, about the same as most people.Share what you've learned, and look for chances to build on your skills when you feel ready.");
+       }
+
+       if (averageScores["Experiential Knowledge"]>7.05){
+          feedback.push("Experiential Knowledge:You scored higher than others in experience.You've had more exposure to death and dying than most. That gives you valuable perspective.You might find yourself naturally supporting others—your lived experience is a real asset.");
+       } else if (averageScores["Experiential Knowledge"]<4.75){
+          feedback.push("Experiential Knowledge:You scored lower than others in experience with death and dying.You may not have had many personal or professional experiences with death or dying.Consider listening to others' stories, or gently reflect on your own feelings. That's a good starting point.");
+       } else{
+          feedback.push("Experiential Knowledge:Your experience score is about average.Your experiences are about average—enough to give you a sense of what death and dying can be like.Stay open to learning from your own experiences and those around you. It builds wisdom.");
+       }
+
+       if (averageScores["Factual Knowledge"]>5.08){
+           feedback.push("Factual Knowledge:You scored higher than most people in knowledge about end-of-life matters.You know quite a lot about death-related matters. That's a powerful tool.Consider helping others understand what you've learned—many people are looking for someone who can guide them.");
+       } else if (averageScores["Factual Knowledge"]<2.5){
+           feedback.push("Factual Knowledge:You scored lower than others in death-related knowledge.You might not feel very informed about end-of-life care or services right now.Learning even just a bit more—like what options exist—can help you feel more prepared and confident.");
+       } else{
+           feedback.push("Factual Knowledge:Your knowledge score is about the same as others'.You've got a good, solid base of knowledge—enough to understand what's going on.Keep asking questions and exploring. It'll help you and those you care about.");
+       }
+
+       if (averageScores["Community Knowledge"]>5.7){
+           feedback.push("Community Knowledge:You scored higher than others in overall community support.You see your community as supportive and engaged around dying and grieving. That's a real strength.Share what's working—others might be looking for ideas to build similar support in their own communities.");
+       } else if(averageScores["Community Knowledge"]>3.5){
+           feedback.push("Community Knowledge:You scored lower than others overall in community-related support.You might not feel very supported by your community around death-related matters.See if there are community groups or events that can help build that support. Small actions make a big difference.");
+       } else{
+          feedback.push("Community Knowledge:Your overall community score is similar to others'.Your sense of community support is about the same as others'.Keep showing up and being part of the conversation—it helps the whole community grow stronger.");
+       }
+
+       if (averageScores["Community Support"]>5.39) {
+           feedback.push("Community Support:You scored higher than most in community support.You feel like your community is pretty supportive, which is wonderful.Help keep that support going by getting involved and welcoming others in.");
+       }  else if (averageScores["Community Support"]>2.91){
+           feedback.push("Community Support:You scored lower than others in feeling supported by your community.You might feel like your community doesn't offer much support around death and dying.Think about ways you can connect with others—there may be more support out there than it seems.");
+       } else {
+          feedback.push("Community Support:Your score is typical when it comes to perceived community support.Your experience with community support is similar to most people's.Look for ways to strengthen those ties—community can be a big help during difficult times.");
        }
 
 // Insert the feedback message into the HTML
-    $('#overallScorecontainer .feedback').text(feedback);
+    $('#overallScorecontainer .feedback').html(feedback.join("<br><br>"));
   
   
       // Display results with detailed explanations
