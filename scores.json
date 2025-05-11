@@ -1,0 +1,134 @@
+[
+  {
+    "averageScores": {
+      "Talking-Support": 4.25,
+      "Providing Hands-On Care": 4.25,
+      "Experiential Knowledge": 3.4,
+      "Factual Knowledge": 2.4285714285714284,
+      "Community Knowledge": 3.4,
+      "Community Support": 4.25
+    },
+    "overallScore": 3.663095238095238,
+    "timestamp": "2025-04-26T00:03:34.438Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 4.5,
+      "Providing Hands-On Care": 4.5,
+      "Experiential Knowledge": 3.6,
+      "Factual Knowledge": 2.5714285714285716,
+      "Community Knowledge": 3.6,
+      "Community Support": 4.5
+    },
+    "overallScore": 3.8785714285714286,
+    "timestamp": "2025-04-26T00:15:19.700Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 3,
+      "Providing Hands-On Care": 3,
+      "Experiential Knowledge": 2.4,
+      "Factual Knowledge": 1.7142857142857142,
+      "Community Knowledge": 2.4,
+      "Community Support": 3
+    },
+    "overallScore": 2.585714285714286,
+    "timestamp": "2025-05-02T01:37:45.330Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 3.5,
+      "Providing Hands-On Care": 3.5,
+      "Experiential Knowledge": 2.8,
+      "Factual Knowledge": 2,
+      "Community Knowledge": 2.8,
+      "Community Support": 3.5
+    },
+    "overallScore": 3.016666666666667,
+    "timestamp": "2025-05-02T02:21:20.880Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2,
+      "Providing Hands-On Care": 2,
+      "Experiential Knowledge": 1.6,
+      "Factual Knowledge": 1.1428571428571428,
+      "Community Knowledge": 1.6,
+      "Community Support": 2
+    },
+    "overallScore": 1.7238095238095237,
+    "timestamp": "2025-05-03T10:03:46.512Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2.5,
+      "Providing Hands-On Care": 2.5,
+      "Experiential Knowledge": 2,
+      "Factual Knowledge": 1.4285714285714286,
+      "Community Knowledge": 2,
+      "Community Support": 2.5
+    },
+    "overallScore": 2.1547619047619047,
+    "timestamp": "2025-05-03T10:04:37.978Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2.75,
+      "Providing Hands-On Care": 2.75,
+      "Experiential Knowledge": 2.2,
+      "Factual Knowledge": 1.5714285714285714,
+      "Community Knowledge": 2.2,
+      "Community Support": 2.75
+    },
+    "overallScore": 2.3702380952380953,
+    "timestamp": "2025-05-03T10:14:30.406Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2.75,
+      "Providing Hands-On Care": 2.75,
+      "Experiential Knowledge": 2.2,
+      "Factual Knowledge": 1.5714285714285714,
+      "Community Knowledge": 2.2,
+      "Community Support": 2.75
+    },
+    "overallScore": 2.3702380952380953,
+    "timestamp": "2025-05-03T10:19:22.343Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2.5,
+      "Providing Hands-On Care": 2.5,
+      "Experiential Knowledge": 2,
+      "Factual Knowledge": 1.4285714285714286,
+      "Community Knowledge": 2,
+      "Community Support": 2.5
+    },
+    "overallScore": 2.1547619047619047,
+    "timestamp": "2025-05-03T10:21:10.879Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2.25,
+      "Providing Hands-On Care": 2.25,
+      "Experiential Knowledge": 1.8,
+      "Factual Knowledge": 1.2857142857142858,
+      "Community Knowledge": 1.8,
+      "Community Support": 2.25
+    },
+    "overallScore": 1.9392857142857143,
+    "timestamp": "2025-05-03T10:22:37.282Z"
+  },
+  {
+    "averageScores": {
+      "Talking-Support": 2.75,
+      "Providing Hands-On Care": 2.75,
+      "Experiential Knowledge": 2.2,
+      "Factual Knowledge": 1.5714285714285714,
+      "Community Knowledge": 2.2,
+      "Community Support": 2.75
+    },
+    "overallScore": 2.3702380952380953,
+    "timestamp": "2025-05-03T10:26:40.253Z"
+  }
+]
