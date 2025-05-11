@@ -1,12 +1,27 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const {Client}=require("pg");
+const bodyParser=require("body-parser");
+require ('dotenv').config();
 
 const app = express();
 const PORT = 3000;
 
+const db = new Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+});
+
+
+db.connect();
+
+
 // Middleware to parse JSON bodies
-app.use(express.json());
+app.use(bodyParser.json());
 
 // Serve static files (CSS, JS, images) from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -17,42 +32,24 @@ app.get('/quiz', (req, res) => {
 });
 
 // Handle POST request to save scores
-app.post('/save-scores', (req, res) => {
+app.post('/save-scores', async (req, res) => {
   const { averageScores, overallScore } = req.body;
 
   if (!averageScores || overallScore === undefined) {
     return res.status(400).json({ error: 'Missing averageScores or overallScore' });
   }
 
-  const newEntry = {
-    averageScores,
-    overallScore,
-    timestamp: new Date().toISOString()
-  };
-
-  const filePath = path.join(__dirname, 'scores.json');
-
-  fs.readFile(filePath, 'utf8', (readErr, fileData) => {
-    let data = [];
-    if (!readErr && fileData) {
-      try {
-        data = JSON.parse(fileData);
-      } catch (parseErr) {
-        console.error('Error parsing scores.json:', parseErr);
-      }
-    }
-
-    data.push(newEntry);
-
-    fs.writeFile(filePath, JSON.stringify(data, null, 2), (writeErr) => {
-      if (writeErr) {
-        console.error('Error writing to scores.json:', writeErr);
-        return res.status(500).json({ error: 'Error saving scores' });
-      }
-      res.status(200).json({ message: 'Scores saved successfully' });
-    });
-  });
+  try{ 
+    //Convert averageScores to a JSON string
+    await db.query("INSERT INTO quiz_scores (averagescore,overallscore) VALUES ($1,$2)",[JSON.stringify(averageScores),overallScore]
+  );
+     res.redirect("/");
+  } catch(error){
+    console.error('Database error:', error);
+    res.status(500).json({error:'Database error'});
+  }
 });
+
 
 // Start the server
 app.listen(PORT, () => {
