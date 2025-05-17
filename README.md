@@ -1,1 +1,0 @@
-# Death-Literacy-Web-App
